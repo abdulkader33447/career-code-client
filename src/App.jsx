@@ -33,3 +33,6 @@ function App() {
 }
 
 export default App
+//*
+// give me different folder structure of a large react app. suggest me which one should i use and when . share pros and cons. i am building a website called career code . separete front end and backend repo. i am using firebase auth , react on client, react-router, tailwind,daisy ui, and other necessary packages. i will have pages for employer as will as job seeker
+// /
