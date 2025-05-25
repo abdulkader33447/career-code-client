@@ -1,26 +1,26 @@
 import Lottie from "lottie-react";
 import React, { useContext } from "react";
-import registerLottie from "../../../../assets/lotties/register.json";
-import { AuthContext } from "../../../../context/AuthContext/AuthContext";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+import signInLottie from "../../assets/lotties/logIn.json";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
-const Register = () => {
-  const { createUser } = useContext(AuthContext);
-  const handleRegister = (e) => {
+const SignIn = () => {
+  const { signInUser } = useContext(AuthContext);
+  const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     // console.log(email, password);
 
-    // create user
-    createUser(email, password)
+    // sign in user
+    signInUser(email, password)
       .then((result) => {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Successfully registered",
+          title: "Sign in successfully",
           showConfirmButton: false,
           timer: 2500,
         });
@@ -37,18 +37,16 @@ const Register = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <Lottie
-            style={{ width: "200px" }}
-            animationData={registerLottie}
+            style={{ width: "300px" }}
+            animationData={signInLottie}
             loop={true}
           ></Lottie>
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
-            <form onSubmit={handleRegister}>
+            <form onSubmit={handleSignIn}>
               <fieldset className="fieldset">
-                <h1 className="sm:text-5xl text-3xl font-bold">
-                  Register now!
-                </h1>
+                <h1 className="sm:text-5xl text-3xl font-bold">Sign In now!</h1>
                 <label className="label">Email</label>
                 <input
                   type="email"
@@ -63,8 +61,10 @@ const Register = () => {
                   className="input"
                   placeholder="Password"
                 />
-                <div></div>
-                <button className="btn btn-neutral mt-4">Register</button>
+                <div>
+                  <a className="link link-hover">Forgot password?</a>
+                </div>
+                <button className="btn btn-neutral mt-4">Sign In</button>
                 {/* Google */}
                 <button className="btn mt-2 bg-white text-black border-[#e5e5e5]">
                   <svg
@@ -94,12 +94,12 @@ const Register = () => {
                       ></path>
                     </g>
                   </svg>
-                  Register with Google
+                  Login with Google
                 </button>
                 <span>
-                  Already have an account? please{" "}
-                  <Link to="/signIn" className="text-blue-500 underline">
-                    Log In
+                  Don't have an account? please{" "}
+                  <Link to="/register" className="text-blue-500 underline">
+                    Register
                   </Link>
                 </span>
               </fieldset>
@@ -111,4 +111,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignIn;
