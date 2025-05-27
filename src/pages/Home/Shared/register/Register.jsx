@@ -2,12 +2,14 @@ import Lottie from "lottie-react";
 import React, { useContext } from "react";
 import registerLottie from "../../../../assets/lotties/register.json";
 import { AuthContext } from "../../../../context/AuthContext/AuthContext";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import SocialLogin from "../../../SignIn/SocialLogin";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+const navigate=useNavigate()
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -23,8 +25,9 @@ const Register = () => {
           icon: "success",
           title: "Successfully registered",
           showConfirmButton: false,
-          timer: 2500,
+          timer: 3000,
         });
+        navigate('/')
         console.log(result);
       })
       .catch((error) => {

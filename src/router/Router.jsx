@@ -3,6 +3,9 @@ import RootLayout from "../layouts/RootLayout";
 import Home from "../pages/Home/Home";
 import Register from "../pages/Home/Shared/register/Register";
 import SignIn from "../pages/SignIn/SignIn";
+import JobDetails from "../pages/jobDetails/JobDetails";
+import PrivateRoute from "../routes/PrivateRoute";
+import JobApply from "../pages/jobApply/JobApply";
 
 const Router = createBrowserRouter([
   {
@@ -20,6 +23,23 @@ const Router = createBrowserRouter([
       {
         path: "/signIn",
         Component: SignIn,
+      },
+      {
+        path: "/jobs/:id",
+        Component: JobDetails,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/jobs/${params.id}`),
+        hydrateFallbackElement: (
+          <span className="loading loading-ring loading-xl"></span>
+        ),
+      },
+      {
+        path: "/jobApply/:id",
+        element: (
+          <PrivateRoute>
+            <JobApply />
+          </PrivateRoute>
+        ),
       },
     ],
   },
