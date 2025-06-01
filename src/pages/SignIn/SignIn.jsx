@@ -9,7 +9,7 @@ import SocialLogin from "./SocialLogin";
 const SignIn = () => {
   const { signInUser } = useContext(AuthContext);
   const location = useLocation();
-  console.log("location in sign in page", location);
+  // console.log("location in sign in page", location);
   const navigate = useNavigate();
   const from = location.state || "/";
 
@@ -26,12 +26,12 @@ const SignIn = () => {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Sign in successfully",
+          title: "Sign in successful",
           showConfirmButton: false,
           timer: 3000,
         });
         navigate(from)
-        console.log(result);
+        // console.log(result);
       })
       .catch((error) => {
         const errorCode = error.code;

@@ -3,9 +3,9 @@ import Banner from "./Banner";
 import HotJobs from "./HotJobs";
 
 const Home = () => {
-  const jobsPromise = fetch("http://localhost:3000/jobs").then((res) =>
-    res.json()
-  );
+  const jobsPromise = fetch(
+    "https://career-code-server-mu.vercel.app/jobs"
+  ).then((res) => res.json());
   return (
     <div>
       <Banner />

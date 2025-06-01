@@ -16,7 +16,7 @@ const JobApply = () => {
     const linkedIn = form.linkedIn.value;
     const github = form.github.value;
     const resume = form.resume.value;
-    console.log(linkedIn, github, resume);
+    // console.log(linkedIn, github, resume);
 
     const application = {
       jobId,
@@ -27,7 +27,10 @@ const JobApply = () => {
     };
 
     axios
-      .post("http://localhost:3000/applications", application)
+      .post(
+        "https://career-code-server-mu.vercel.app/applications",
+        application
+      )
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({
@@ -38,7 +41,7 @@ const JobApply = () => {
             timer: 3000,
           });
         }
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((error) => {
         console.log(error);

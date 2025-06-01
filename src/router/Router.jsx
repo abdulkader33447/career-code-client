@@ -32,7 +32,7 @@ const Router = createBrowserRouter([
         path: "/jobs/:id",
         Component: JobDetails,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/jobs/${params.id}`),
+          fetch(`https://career-code-server-mu.vercel.app/jobs/${params.id}`),
         hydrateFallbackElement: (
           <span className="loading loading-ring loading-xl"></span>
         ),
@@ -77,8 +77,10 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/applications/job/${params.job_id}`),
-        hydrateFallbackElement:<p>loading....</p>
+          fetch(
+            `https://career-code-server-mu.vercel.app/applications/job/${params.job_id}`
+          ),
+        hydrateFallbackElement: <p>loading....</p>,
       },
     ],
   },

@@ -18,7 +18,7 @@ const SocialLogin = ({ from }) => {
           timer: 2500,
         });
         navigate(from || "/");
-        console.log(result);
+        // console.log(result);
       })
       .catch((error) => {
         console.log(error);

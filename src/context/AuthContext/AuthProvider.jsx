@@ -9,7 +9,6 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../../firebase/firebase.init";
-import axios from "axios";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -42,14 +41,8 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       setLoading(false);
       // console.log("user in the on auth state change", createUser);
-      if (currentUser?.email) {
-        axios
-          .post("http://localhost:3000/jwt", { email: currentUser.email },{withCredentials:true})
-          .then((res) => console.log(res.data))
-          .catch((error) => console.log(error));
-      }
 
-      console.log("user in the auth state change", currentUser);
+      // console.log("user in the auth state change", currentUser);
     });
     return () => {
       unsubscribe();

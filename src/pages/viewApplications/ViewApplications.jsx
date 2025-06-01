@@ -9,12 +9,15 @@ const ViewApplications = () => {
   const applications = useLoaderData();
 
   const handleStatusChange = (e, app_id) => {
-    console.log(e.target.value, app_id);
+    // console.log(e.target.value, app_id);
 
     axios
-      .patch(`http://localhost:3000/applications/${app_id}`, {
-        status: e.target.value,
-      })
+      .patch(
+        `https://career-code-server-mu.vercel.app/applications/${app_id}`,
+        {
+          status: e.target.value,
+        }
+      )
       .then((res) => {
         if (res.data.modifiedCount) {
           Swal.fire({
@@ -25,7 +28,7 @@ const ViewApplications = () => {
             timer: 3000,
           });
         }
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((error) => console.log(error));
   };

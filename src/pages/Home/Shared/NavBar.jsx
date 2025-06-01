@@ -44,7 +44,7 @@ const NavBar = () => {
           showConfirmButton: false,
           timer: 2500,
         });
-        console.log("sign out user");
+        // console.log("sign out user");
       })
       .catch((error) => {
         console.log(error);

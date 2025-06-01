@@ -28,7 +28,7 @@ const navigate=useNavigate()
           timer: 3000,
         });
         navigate('/')
-        console.log(result);
+        // console.log(result);
       })
       .catch((error) => {
         const errorCode = error.code;

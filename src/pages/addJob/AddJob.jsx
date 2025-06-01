@@ -41,12 +41,12 @@ const AddJob = () => {
 
     newJob.status = "active";
 
-    console.log("Final job object with status:", newJob);
+    // console.log("Final job object with status:", newJob);
     // console.log(Object.keys(newJob).length);
 
     // save job to the db
     axios
-      .post("http://localhost:3000/jobs", newJob)
+      .post("https://career-code-server-mu.vercel.app/jobs", newJob)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({
@@ -57,7 +57,7 @@ const AddJob = () => {
             timer: 3000,
           });
         }
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -113,7 +113,6 @@ const AddJob = () => {
               type="radio"
               name="jobType"
               aria-label="All"
-              
             />
             <input
               className="btn"
